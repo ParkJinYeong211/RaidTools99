@@ -8,4 +8,4 @@ class Cleric:
         self._position = position
 
     def __str__(self) -> str:
-        return f"{self._name} -- Position: {self._position}"
+        return f"{self._position} - {self._name}"
