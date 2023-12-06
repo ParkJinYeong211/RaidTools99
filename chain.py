@@ -8,8 +8,8 @@ class Chain:
 
     def __str__(self) -> str:
         if len(self._chain):
-            return " // ".join(str(c) for c in self._chain)
-        return "Empty Chain"
+            return " // ".join(str(c) for c in self._chain)+"\n"
+        return "Empty Chain\n\n"
 
     def _set_positions(self) -> None:
         for i, cleric in enumerate(self._chain):
