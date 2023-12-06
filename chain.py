@@ -13,17 +13,24 @@ class Chain:
 
     def _set_positions(self) -> None:
         for i, cleric in enumerate(self._chain):
-            cleric.set_position(self._position_map(i))
+            if cleric:
+                cleric.set_position(self._position_map(i))
         
 
     def add_cleric(self, new_cleric) -> None:
         
-        if(isinstance(new_cleric, Cleric)):
-            self._chain.append(new_cleric)
+        if(isinstance(new_cleric, str)):
+            self._chain.append(Cleric(new_cleric))
         self._set_positions()
 
     def remove_cleric(self, position_to_remove) -> None: 
-        pass
+        self._chain[position_to_remove] = None
+
+    def remove_chain_gaps(self) -> None:
+        
+        self._chain = [cleric for cleric in self._chain if cleric]
+        self._set_positions()
+        
 
     def _position_map(self, index) -> str:
         if index < 9:

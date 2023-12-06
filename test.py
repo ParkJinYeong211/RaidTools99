@@ -1,21 +1,18 @@
 from chain import Chain
 from chaintools import Cleric
 
-clericA, clericB, clericC = Cleric("Spasepope"), Cleric("Drgn"), Cleric("Vet")
+cleric_names = ["Spasepope", "Drgn", "Vet", "Katastrophic", "Salvette", "Fizzlesnick", "Teomus"]
 new_chain = Chain()
 
-print(f"Clerics are: {clericA}; {clericB}, {clericC}")
+for c in cleric_names:
+    new_chain.add_cleric(c)
+    print(new_chain)
+
+new_chain.remove_cleric(1)
+new_chain.remove_cleric(3)
 
 print(new_chain)
 
-new_chain.add_cleric(clericA)
-
-print(new_chain)
-
-new_chain.add_cleric(clericB)
-
-print(new_chain)
-
-new_chain.add_cleric(clericC)
+new_chain.remove_chain_gaps()
 
 print(new_chain)
