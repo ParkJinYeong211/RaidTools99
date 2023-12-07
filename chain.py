@@ -35,7 +35,7 @@ class Chain:
             replaced_cleric = self._chain[position] #buffers replaced cleric
             replaced_cleric.set_position(self._position_map(len(self._chain))) #sets replaced cleric position to end
             self._chain.append(replaced_cleric) # appends replaced cleric to end
-            self._chain[position] = new_cleric
+            self._chain[position] = new_cleric # new cleric is added to position
         else:
             self._chain[position] = new_cleric
 
