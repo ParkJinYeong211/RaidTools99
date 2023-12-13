@@ -18,7 +18,7 @@ while True:
     write_options()
 
     selection = input("Make Selection: ")
-
+    print("\n")
     match selection:
         case "0": break
         case "1":
@@ -26,13 +26,13 @@ while True:
             my_chain.add_cleric(cleric)
         case "2":
             cleric = input("Cleric name: ")
-            position = int(input("Position: "))
-            my_chain.add_cleric_to_position(cleric)
+            position = input("Position: ")
+            my_chain.add_cleric_to_position(cleric, position)
         case "3":
-            position = int(input("Cleric position to remove: "))
+            position = input("Cleric position to remove: ")
             my_chain.remove_cleric(position)
         case "4":
-            clericA, clericB = int(input("Cleric A to swap with B: ")), int(input("Cleric B to swap with A: "))
+            clericA, clericB = input("Cleric A to swap with B: "), input("Cleric B to swap with A: ")
             my_chain.swap_clerics(clericA, clericB)
         case "5":
             my_chain.remove_chain_gaps()

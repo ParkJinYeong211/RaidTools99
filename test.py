@@ -10,18 +10,18 @@ for c in cleric_names:
 print("Create a chain")
 print(new_chain)
 
-new_chain.remove_cleric(1)
-new_chain.remove_cleric(3)
+new_chain.remove_cleric("222")
+new_chain.remove_cleric("444")
 
 print("Remove 222, 444")
 print(new_chain)
 
-new_chain.add_cleric_to_position("Drgn", 1)
+new_chain.add_cleric_to_position("Drgn", "222")
 
 print("Add Drgn to 222")
 print(new_chain)
 
-new_chain.add_cleric_to_position("Katastrophic", 1)
+new_chain.add_cleric_to_position("Katastrophic", "222")
 
 print("Add Kata to 222 (Drgn should go to the end)")
 print(new_chain)
@@ -36,7 +36,7 @@ new_chain.remove_chain_gaps()
 print("Tidy up chain")
 print(new_chain)
 
-new_chain.swap_clerics(1, 5)
+new_chain.swap_clerics("222", "555")
 
 print("Swap 222, 555")
 print(new_chain)

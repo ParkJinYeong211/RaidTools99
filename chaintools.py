@@ -9,3 +9,6 @@ class Cleric:
 
     def __str__(self) -> str:
         return f"{self._position} - {self._name}"
+    
+    def my_name(self) -> str:
+        return self._name
