@@ -35,7 +35,7 @@ class Chain:
         index = int(self._chain_map.get(position))
         new_cleric = Cleric(name)
         if self._chain[index]:
-            self.add_cleric(self._chain[index].my_name())
+            self.add_cleric(self._chain[index].my_name()) #old cleric added to end
             self._chain[index] = new_cleric # new cleric is added to position
         else:
             self._chain[index] = new_cleric
