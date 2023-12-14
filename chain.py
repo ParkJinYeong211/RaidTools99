@@ -54,8 +54,12 @@ class Chain:
 
     def swap_clerics(self, posA, posB) -> None:
         posA, posB = int(self._map.get(posA)), int(self._map.get(posB))
-        if self._chain[posA] and self._chain[posB]:
-            self._chain[posA], self._chain[posB] = self._chain[posB], self._chain[posA]
-        self._set_positions()
+        try:
+            if self._chain[posA] and self._chain[posB]:
+                self._chain[posA], self._chain[posB] = self._chain[posB], self._chain[posA]
+            self._set_positions()
+        except IndexError:
+            pass
+
 
     
