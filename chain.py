@@ -9,14 +9,17 @@ class Chain:
         self._map = map
 
     def __str__(self) -> str:
-        if len(self._chain):
-            return self._name+" :: "+" // ".join(str(c) for c in self._chain)+"\n"
-        return f"{self._name} :: Empty Chain\n"
+        if self._check_for_clerics():
+            return self._name+" :: "+" // ".join(str(c) for c in self._chain)
+        return f"{self._name} :: Empty Chain"
 
     def _set_positions(self) -> None:
         for i, cleric in enumerate(self._chain):
             if cleric:
                 cleric.set_position(self._map[str(i)])
+
+    def _check_for_clerics(self) -> bool:
+        return any(isinstance(cleric, Cleric) for cleric in self._chain)
         
 
     def add_cleric(self, new_cleric) -> None:
@@ -25,10 +28,10 @@ class Chain:
         self._set_positions()
 
     def remove_cleric(self, position_to_remove) -> None: 
-        try:
-            self._chain[int(self._map.get(position_to_remove))] = None
-        except IndexError:
-            pass
+        if self._map.get(position_to_remove):
+            self._chain[int(self._map.get(position_to_remove.upper()))] = None
+            if not self._check_for_clerics:
+                self._chain = list()
 
     def remove_chain_gaps(self) -> None:
         self._chain = [cleric for cleric in self._chain if cleric]
@@ -54,3 +57,5 @@ class Chain:
         if self._chain[posA] and self._chain[posB]:
             self._chain[posA], self._chain[posB] = self._chain[posB], self._chain[posA]
         self._set_positions()
+
+    
